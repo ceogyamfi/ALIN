@@ -1,5 +1,6 @@
-import "package:alin_ai/theme/theme_provider.dart";
-import "package:flutter/cupertino.dart";
+import "package:alin_ai/font_control/fontslider_provider.dart";
+import "package:alin_ai/pages/dark_mode_toggle.dart";
+import "package:alin_ai/pages/font_slider_toggle.dart";
 import "package:flutter/material.dart";
 import "package:provider/provider.dart";
 
@@ -8,33 +9,20 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final fontSizeProvider = Provider.of<FontSliderProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Center(
           child: Text("S E T T I N G S"),
         ),
       ),
-      body: Container(
-        decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
-            borderRadius: BorderRadius.circular(12)),
-        padding: const EdgeInsets.all(16),
-        margin: const EdgeInsets.all(25),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              "Dark Mode",
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            CupertinoSwitch(
-                value: Provider.of<ThemeProvider>(context, listen: false)
-                    .isDarkMode,
-                onChanged: ((value) =>
-                    Provider.of<ThemeProvider>(context, listen: false)
-                        .toggleTheme()))
-          ],
-        ),
+      body: ListView(
+        padding: const EdgeInsets.all(10),
+        children: <Widget>[
+          const DarkModeContainer(),
+          FontSliderContainer(fontSizeProvider: fontSizeProvider),
+        ],
       ),
     );
   }
