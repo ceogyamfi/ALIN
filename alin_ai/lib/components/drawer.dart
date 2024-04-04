@@ -40,6 +40,22 @@ class MyDrawer extends StatelessWidget {
                     ));
               },
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 25.0, top: 0),
+            child: ListTile(
+              title: const Text("C H A T L O G S"),
+              leading: const Icon(Icons.history),
+              onTap: () {
+                Navigator.pop(context);
+
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const SettingsPage(),
+                //     ));
+              },
+            ),
           )
         ],
       ),
