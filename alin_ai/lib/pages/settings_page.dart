@@ -13,8 +13,13 @@ class SettingsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text("S E T T I N G S"),
+        title: Center(
+          child: Text(
+            "S E T T I N G S",
+            style: TextStyle(
+                fontSize: Provider.of<FontSliderProvider>(context).value,
+                fontWeight: FontWeight.bold),
+          ),
         ),
       ),
       body: ListView(
