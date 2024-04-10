@@ -18,11 +18,13 @@ class FontSliderContainer extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            "Font Slider",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: fontSizeProvider.value,
+          Expanded(
+            child: Text(
+              "Font Slider",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: fontSizeProvider.value,
+              ),
             ),
           ),
           Slider(
