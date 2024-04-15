@@ -47,6 +47,7 @@ class MainApp extends StatelessWidget {
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
           ],
           home: const HomePage(),
           theme: Provider.of<ThemeProvider>(context).themeData,

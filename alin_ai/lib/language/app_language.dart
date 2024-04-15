@@ -48,15 +48,15 @@ class AppLanguage extends ChangeNotifier {
     _appLocale = type;
     notifyListeners();
     if (type.languageCode == "ar") {
-      _appLocale = const Locale("ar", "");
+      _appLocale = const Locale("ar", "AE");
       await prefs.setString('language_code', 'ar');
       await prefs.setString('countryCode', '');
     } else if (type.languageCode == "es") {
-      _appLocale = const Locale("es", "");
+      _appLocale = const Locale("es", "ES");
       await prefs.setString('language_code', 'es');
       await prefs.setString('countryCode', '');
     } else if (type.languageCode == "zh") {
-      _appLocale = const Locale("zh", "");
+      _appLocale = const Locale("zh", "CN");
       await prefs.setString('language_code', 'zh');
       await prefs.setString('countryCode', '');
     } else {
