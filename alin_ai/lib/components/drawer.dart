@@ -33,7 +33,8 @@ class MyDrawer extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 25.0, top: 25),
                 child: ListTile(
                   title: Text(
-                    AppLocalizations.of(context)?.translate('H O M E') ?? '',
+                    AppLocalizations.of(context)?.translate('H O M E') ??
+                        'H O M E',
                     style: TextStyle(
                         fontSize:
                             Provider.of<FontSliderProvider>(context).value,

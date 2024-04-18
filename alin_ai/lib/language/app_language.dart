@@ -15,31 +15,6 @@ class AppLanguage extends ChangeNotifier {
     return Null;
   }
 
-  // void changeLanguage(Locale type) async {
-  //   var prefs = await SharedPreferences.getInstance();
-  //   if (_appLocale == type) {
-  //     return;
-  //   }
-  //   if (type == const Locale("ar")) {
-  //     _appLocale = const Locale("ar");
-  //     await prefs.setString('language_code', 'ar');
-  //     await prefs.setString('countryCode', '');
-  //   } else if (type == const Locale("es")) {
-  //     _appLocale = const Locale("es");
-  //     await prefs.setString('language_code', 'es');
-  //     await prefs.setString('countryCode', '');
-  //   } else if (type == const Locale("zh")) {
-  //     _appLocale = const Locale("zh");
-  //     await prefs.setString('language_code', 'zh');
-  //     await prefs.setString('countryCode', '');
-  //   } else {
-  //     _appLocale = const Locale("en");
-  //     await prefs.setString('language_code', 'en');
-  //     await prefs.setString('countryCode', 'US');
-  //   }
-  //   notifyListeners();
-  // }
-
   void changeLanguage(Locale type) async {
     var prefs = await SharedPreferences.getInstance();
     if (_appLocale == type) {
