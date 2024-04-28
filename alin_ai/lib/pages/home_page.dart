@@ -17,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   final FocusNode _textFieldFocus = FocusNode();
   final TextEditingController _textController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
+  // ignore: unused_field
   bool _loading = false;
   SpeechToText speech = SpeechToText();
   var isListening = false;
@@ -24,8 +25,10 @@ class _HomePageState extends State<HomePage> {
   void checkMic() async {
     bool micAvailable = await speech.initialize();
     if (micAvailable) {
+      // ignore: avoid_print
       print('Microphone Available');
     } else {
+      // ignore: avoid_print
       print('User Denied the use of speech micro');
     }
   }

@@ -1,4 +1,4 @@
-import "package:alin_ai/font_control/fontslider_provider.dart";
+import "package:alin_ai/components/drawer_list_tile.dart";
 import "package:alin_ai/language/app_language.dart";
 import "package:alin_ai/language/lang_localization.dart";
 import "package:alin_ai/pages/change_app_language.dart";
@@ -18,7 +18,6 @@ class MyDrawer extends StatelessWidget {
           backgroundColor: Theme.of(context).colorScheme.background,
           child: Column(
             children: [
-              // ALIN logo
               DrawerHeader(
                   child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -42,98 +41,33 @@ class MyDrawer extends StatelessWidget {
                   ),
                 ],
               )),
-
-              Padding(
-                padding: const EdgeInsets.only(left: 25.0, top: 25),
-                child: ListTile(
-                    title: Text(
-                      AppLocalizations.of(context)?.translate('H O M E') ??
-                          'H O M E',
-                      style: TextStyle(
-                          fontSize:
-                              Provider.of<FontSliderProvider>(context).value,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    leading: const Icon(Icons.home),
-                    onTap: () => {
-                          Navigator.pop(context),
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const StarterHomeUI()))
-                        }),
+              buildListTile(
+                context,
+                AppLocalizations.of(context)?.translate('H O M E') ?? 'H O M E',
+                Icons.home,
+                const StarterHomeUI(),
               ),
-
-              Padding(
-                padding: const EdgeInsets.only(left: 25.0, top: 0),
-                child: ListTile(
-                  title: Text(
-                    AppLocalizations.of(context)
-                            ?.translate('S E T T I N G S') ??
-                        'S E T T I N G S',
-                    style: TextStyle(
-                        fontSize:
-                            Provider.of<FontSliderProvider>(context).value,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  leading: const Icon(Icons.settings),
-                  onTap: () {
-                    Navigator.pop(context);
-
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SettingsPage(),
-                        ));
-                  },
-                ),
+              buildListTile(
+                context,
+                AppLocalizations.of(context)?.translate('S E T T I N G S') ??
+                    'S E T T I N G S',
+                Icons.settings,
+                const SettingsPage(),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 25.0, top: 0),
-                child: ListTile(
-                  title: Text(
-                    AppLocalizations.of(context)
-                            ?.translate('C H A T L O G S') ??
-                        'C H A T L O G S',
-                    style: TextStyle(
-                        fontSize:
-                            Provider.of<FontSliderProvider>(context).value,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  leading: const Icon(Icons.history),
-                  onTap: () => {
-                    Navigator.pop(context),
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const StarterHomeUI())),
-                  },
-                ),
+              buildListTile(
+                context,
+                AppLocalizations.of(context)?.translate('C H A T L O G S') ??
+                    'C H A T L O G S',
+                Icons.history,
+                const StarterHomeUI(),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 25.0, top: 0),
-                child: ListTile(
-                  title: Text(
-                    AppLocalizations.of(context)!
-                            .translate('L A N G U A G E') ??
-                        'L A N G U A G E',
-                    style: TextStyle(
-                        fontSize:
-                            Provider.of<FontSliderProvider>(context).value,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  leading: const Icon(Icons.language),
-                  onTap: () {
-                    Navigator.pop(context);
-
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AppLang(),
-                        ));
-                  },
-                ),
-              )
+              buildListTile(
+                context,
+                AppLocalizations.of(context)?.translate('L A N G U A G E') ??
+                    'L A N G U A G E',
+                Icons.language,
+                const AppLang(),
+              ),
             ],
           ),
         );
