@@ -13,11 +13,12 @@ dependencies:
   flutter_localizations: 
     sdk: flutter
   shared_preferences: ^2.2.2
-  google_generative_ai: ^0.2.3
+  google_generative_ai: ^0.3.2
+  speech_to_text: ^6.6.1
   flutter_dotenv: ^5.0.0
-  flutter_markdown: ^0.6.22+1
+  flutter_markdown: ^0.7.1
   google_fonts: ^6.2.1
-  speech_to_text: ^5.4.0
+  
 
 
 
