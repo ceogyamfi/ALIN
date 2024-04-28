@@ -5,7 +5,6 @@ import "package:alin_ai/pages/change_app_language.dart";
 import "package:alin_ai/pages/settings_page.dart";
 import "package:alin_ai/pages/starter_home_page.dart";
 import "package:flutter/material.dart";
-import "package:google_fonts/google_fonts.dart";
 import "package:provider/provider.dart";
 
 class MyDrawer extends StatelessWidget {
@@ -32,7 +31,6 @@ class MyDrawer extends StatelessWidget {
                       height: 100,
                     ),
                   ),
-                  // const SizedBox(width: 1),
                   const Expanded(
                     child: Text(
                       'ALIN',
@@ -48,17 +46,22 @@ class MyDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 25.0, top: 25),
                 child: ListTile(
-                  title: Text(
-                    AppLocalizations.of(context)?.translate('H O M E') ??
-                        'H O M E',
-                    style: TextStyle(
-                        fontSize:
-                            Provider.of<FontSliderProvider>(context).value,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  leading: const Icon(Icons.home),
-                  onTap: () => Navigator.pop(context),
-                ),
+                    title: Text(
+                      AppLocalizations.of(context)?.translate('H O M E') ??
+                          'H O M E',
+                      style: TextStyle(
+                          fontSize:
+                              Provider.of<FontSliderProvider>(context).value,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    leading: const Icon(Icons.home),
+                    onTap: () => {
+                          Navigator.pop(context),
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const StarterHomeUI()))
+                        }),
               ),
 
               Padding(

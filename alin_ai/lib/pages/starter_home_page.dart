@@ -10,13 +10,13 @@ class StarterHomeUI extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Padding(
-        padding: const EdgeInsets.only(bottom: 20.0),
+        padding: const EdgeInsets.only(bottom: 15.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const SizedBox(height: 15),
+            const SizedBox(height: 5),
             Container(
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(50.0),
               alignment: Alignment.center,
               child: const Text(
                 'Welcome',
@@ -24,11 +24,11 @@ class StarterHomeUI extends StatelessWidget {
               ),
             ),
             Container(
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.symmetric(vertical: 1.0),
               alignment: Alignment.center,
               child: const Text(
                 'I am ALIN',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400),
               ),
             ),
             Expanded(
@@ -36,15 +36,15 @@ class StarterHomeUI extends StatelessWidget {
                 alignment: Alignment.center,
                 child: Image.asset(
                   'lib/images/ALIN_Logo_second.png',
-                  width: 200,
-                  height: 200,
+                  width: 300,
+                  height: 300,
                 ),
               ),
             ),
             const SizedBox(height: 10),
             //Settings Page Icon Button
             Container(
-              width: 450,
+              width: 370,
               decoration: BoxDecoration(
                 color: const Color(0xFF1C487B),
                 borderRadius: BorderRadius.circular(5),
@@ -78,7 +78,7 @@ class StarterHomeUI extends StatelessWidget {
 
             //Previous Chat Icon Button
             Container(
-              width: 450,
+              width: 370,
               decoration: BoxDecoration(
                 color: const Color(0xFF1C487B),
                 borderRadius: BorderRadius.circular(5),
@@ -112,7 +112,7 @@ class StarterHomeUI extends StatelessWidget {
 
             //Home Page Icon
             Container(
-              width: 450,
+              width: 370,
               decoration: BoxDecoration(
                 color: const Color(0xFF1C487B),
                 borderRadius: BorderRadius.circular(5),

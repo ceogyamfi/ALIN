@@ -47,8 +47,8 @@ class _HomePageState extends State<HomePage> {
         title: Center(
           child: Image.asset(
             'lib/images/ALIN_Logo_second.png',
-            width: 50,
-            height: 50,
+            width: 30,
+            height: 30,
           ),
         ),
       ),
@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
   InputDecoration _textFieldDecoration() {
     return InputDecoration(
         contentPadding: const EdgeInsets.all(15),
-        hintText: 'Enter a prompt...',
+        hintText: 'Message ALIN...',
         border: OutlineInputBorder(
           borderRadius: const BorderRadius.all(
             Radius.circular(14),
@@ -121,36 +121,34 @@ class _HomePageState extends State<HomePage> {
             borderSide:
                 BorderSide(color: Theme.of(context).colorScheme.secondary)),
         suffixIcon: GestureDetector(
-            onTap: () async {
-              if (!isListening) {
-                bool micAvailable = await speech.initialize();
-                if (micAvailable) {
-                  setState(() {
-                    isListening = true;
-                  });
-
-                  speech.listen(
-                      listenFor: const Duration(seconds: 30),
-                      onResult: (result) {
-                        setState(() {
-                          _textController.text = result.recognizedWords;
-                          // isListening = false;
-                        });
-                      });
-                }
-              } else {
+          onTap: () async {
+            if (!isListening) {
+              bool micAvailable = await speech.initialize();
+              if (micAvailable) {
                 setState(() {
-                  isListening = false;
-
-                  speech.stop();
+                  isListening = true;
                 });
+
+                speech.listen(
+                    listenFor: const Duration(seconds: 20),
+                    onResult: (result) {
+                      setState(() {
+                        _textController.text = result.recognizedWords;
+                      });
+                    });
               }
-            },
-            child: CircleAvatar(
-              child: isListening
-                  ? const Icon(Icons.record_voice_over)
-                  : const Icon(Icons.mic),
-            )));
+            } else {
+              setState(() {
+                isListening = false;
+
+                speech.stop();
+              });
+            }
+          },
+          child: isListening
+              ? const Icon(Icons.record_voice_over)
+              : const Icon(Icons.mic),
+        ));
   }
 
   Future<void> _sendChatMessage(String message) async {
