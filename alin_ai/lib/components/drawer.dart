@@ -1,10 +1,9 @@
-import "dart:js";
-
 import "package:alin_ai/font_control/fontslider_provider.dart";
 import "package:alin_ai/language/app_language.dart";
 import "package:alin_ai/language/lang_localization.dart";
 import "package:alin_ai/pages/change_app_language.dart";
 import "package:alin_ai/pages/settings_page.dart";
+import "package:alin_ai/pages/starter_home_page.dart";
 import "package:flutter/material.dart";
 import "package:provider/provider.dart";
 
@@ -21,12 +20,26 @@ class MyDrawer extends StatelessWidget {
             children: [
               // ALIN logo
               DrawerHeader(
-                  child: Center(
-                child: Image.asset(
-                  'lib/images/ALIN_logo.png',
-                  width: 200,
-                  height: 200,
-                ),
+                  child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 5.0),
+                    child: Image.asset(
+                      'lib/images/ALIN_Logo_second.png',
+                      width: 100,
+                      height: 100,
+                    ),
+                  ),
+                  // const SizedBox(width: 1),
+                  const Expanded(
+                    child: Text(
+                      'ALIN',
+                      style:
+                          TextStyle(fontSize: 50, fontWeight: FontWeight.w500),
+                    ),
+                  ),
+                ],
               )),
 
               Padding(
@@ -82,7 +95,13 @@ class MyDrawer extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                   leading: const Icon(Icons.history),
-                  onTap: () => Navigator.pop(context),
+                  onTap: () => {
+                    Navigator.pop(context),
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const StarterHomeUI())),
+                  },
                 ),
               ),
               Padding(

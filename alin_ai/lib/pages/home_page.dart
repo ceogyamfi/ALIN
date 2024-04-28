@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController _textController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   bool _loading = false;
-          
+
   @override
   void initState() {
     super.initState();
@@ -33,9 +33,9 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Center(
           child: Image.asset(
-            'lib/images/ALIN_logo.png',
-            width: 80,
-            height: 80,
+            'lib/images/ALIN_Logo_second.png',
+            width: 50,
+            height: 50,
           ),
         ),
       ),

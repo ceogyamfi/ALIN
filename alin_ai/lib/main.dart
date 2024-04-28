@@ -1,7 +1,7 @@
 import 'package:alin_ai/font_control/fontslider_provider.dart';
 import 'package:alin_ai/language/app_language.dart';
 import 'package:alin_ai/language/lang_localization.dart';
-import 'package:alin_ai/pages/home_page.dart';
+import 'package:alin_ai/pages/starter_home_page.dart';
 import 'package:alin_ai/theme/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -49,7 +49,7 @@ class MainApp extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          home: const HomePage(),
+          home: const StarterHomeUI(),
           theme: Provider.of<ThemeProvider>(context).themeData,
         );
       }),
