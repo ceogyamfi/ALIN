@@ -5,6 +5,7 @@ import "package:alin_ai/pages/change_app_language.dart";
 import "package:alin_ai/pages/settings_page.dart";
 import "package:alin_ai/pages/starter_home_page.dart";
 import "package:flutter/material.dart";
+import "package:google_fonts/google_fonts.dart";
 import "package:provider/provider.dart";
 
 class MyDrawer extends StatelessWidget {
@@ -35,8 +36,10 @@ class MyDrawer extends StatelessWidget {
                   const Expanded(
                     child: Text(
                       'ALIN',
-                      style:
-                          TextStyle(fontSize: 50, fontWeight: FontWeight.w500),
+                      style: TextStyle(
+                        fontSize: 50,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ],

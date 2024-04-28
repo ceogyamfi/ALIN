@@ -2,6 +2,7 @@ import "package:alin_ai/components/drawer.dart";
 import "package:alin_ai/pages/message_widget.dart";
 import "package:flutter/material.dart";
 import "package:google_generative_ai/google_generative_ai.dart";
+import "package:speech_to_text/speech_to_text.dart";
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,6 +18,17 @@ class _HomePageState extends State<HomePage> {
   final TextEditingController _textController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   bool _loading = false;
+  SpeechToText speech = SpeechToText();
+  var isListening = false;
+
+  void checkMic() async {
+    bool micAvailable = await speech.initialize();
+    if (micAvailable) {
+      print('Microphone Available');
+    } else {
+      print('User Denied the use of speech micro');
+    }
+  }
 
   @override
   void initState() {
@@ -24,6 +36,7 @@ class _HomePageState extends State<HomePage> {
     _model = GenerativeModel(
         model: 'gemini-pro', apiKey: const String.fromEnvironment('apiKey'));
     _chatSession = _model.startChat();
+    checkMic();
   }
 
   @override
@@ -91,37 +104,53 @@ class _HomePageState extends State<HomePage> {
 
   InputDecoration _textFieldDecoration() {
     return InputDecoration(
-      contentPadding: const EdgeInsets.all(15),
-      hintText: 'Enter a prompt...',
-      border: OutlineInputBorder(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(14),
-        ),
-        borderSide: BorderSide(
-          color: Theme.of(context).colorScheme.secondary,
-        ),
-      ),
-      focusedBorder: OutlineInputBorder(
+        contentPadding: const EdgeInsets.all(15),
+        hintText: 'Enter a prompt...',
+        border: OutlineInputBorder(
           borderRadius: const BorderRadius.all(
             Radius.circular(14),
           ),
-          borderSide:
-              BorderSide(color: Theme.of(context).colorScheme.secondary)),
-      suffixIcon: _loading
-          ? const Padding(
-              padding: EdgeInsets.only(right: 8.0),
-              child: CircularProgressIndicator(),
-            )
-          : IconButton(
-              onPressed: () async {
-                _sendChatMessage(_textController.text);
-              },
-              icon: Icon(
-                Icons.send,
-                color: Theme.of(context).colorScheme.primary,
-              ),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(14),
             ),
-    );
+            borderSide:
+                BorderSide(color: Theme.of(context).colorScheme.secondary)),
+        suffixIcon: GestureDetector(
+            onTap: () async {
+              if (!isListening) {
+                bool micAvailable = await speech.initialize();
+                if (micAvailable) {
+                  setState(() {
+                    isListening = true;
+                  });
+
+                  speech.listen(
+                      listenFor: const Duration(seconds: 30),
+                      onResult: (result) {
+                        setState(() {
+                          _textController.text = result.recognizedWords;
+                          // isListening = false;
+                        });
+                      });
+                }
+              } else {
+                setState(() {
+                  isListening = false;
+
+                  speech.stop();
+                });
+              }
+            },
+            child: CircleAvatar(
+              child: isListening
+                  ? const Icon(Icons.record_voice_over)
+                  : const Icon(Icons.mic),
+            )));
   }
 
   Future<void> _sendChatMessage(String message) async {

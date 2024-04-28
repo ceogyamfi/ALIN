@@ -50,6 +50,7 @@ class StarterHomeUI extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               ),
               child: IconButton(
+                hoverColor: Colors.transparent,
                 onPressed: () {
                   Navigator.pop(context);
                   Navigator.push(
@@ -83,6 +84,7 @@ class StarterHomeUI extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               ),
               child: IconButton(
+                hoverColor: Colors.transparent,
                 onPressed: () {
                   Navigator.pop(context);
                   Navigator.push(
@@ -116,6 +118,7 @@ class StarterHomeUI extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
               ),
               child: IconButton(
+                hoverColor: Colors.transparent,
                 onPressed: () {
                   Navigator.pop(context);
                   Navigator.push(
