@@ -54,13 +54,13 @@ class MyDrawer extends StatelessWidget {
                 Icons.settings,
                 const SettingsPage(),
               ),
-              buildListTile(
-                context,
-                AppLocalizations.of(context)?.translate('C H A T L O G S') ??
-                    'C H A T L O G S',
-                Icons.history,
-                const StarterHomeUI(),
-              ),
+              // buildListTile(
+              //   context,
+              //   AppLocalizations.of(context)?.translate('C H A T L O G S') ??
+              //       'C H A T L O G S',
+              //   Icons.history,
+              //   const StarterHomeUI(),
+              // ),
               buildListTile(
                 context,
                 AppLocalizations.of(context)?.translate('L A N G U A G E') ??
