@@ -13,12 +13,12 @@ Real-time prompt and response rendering
 Clean, responsive UI for an engaging chat experience
 Scalable structure for future integrations (e.g., user auth, history)
 
-🙋‍♂️ My Role
-I led the entire app development process:
-Integrated Gemini API to handle user input and generate smart responses
-Built the UI with Flutter, customizing components for responsiveness and clarity
-Managed state and logic to support prompt submission and result handling
-Focused on clean code structure for future scalability
+## 🙋‍♂️ My Role
+## I led the entire app development process:
+## Integrated Gemini API to handle user input and generate smart responses
+## Built the UI with Flutter, customizing components for responsiveness and clarity
+## Managed state and logic to support prompt submission and result handling
+## Focused on clean code structure for future scalability
 
 🚀 Future Improvements
 Add authentication and user profiles
